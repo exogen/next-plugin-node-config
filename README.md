@@ -41,6 +41,52 @@ returns.
   values retrieved from `next/config`, and compatible `get()` and `has()`
   methods.
 
+## Usage
+
+Add some configuration files, for example `config/default.js`, then add the
+plugin to `next.config.js`.
+
+Simplest usage with no existing Next.js config:
+
+```js
+const withNodeConfig = require('next-plugin-node-config');
+
+module.exports = withNodeConfig();
+```
+
+With existing Next.js config:
+
+```js
+const withNodeConfig = require('next-plugin-node-config');
+
+module.exports = withNodeConfig({
+  // These will be merged on top of anything that comes from `config`!
+  serverRuntimeConfig: {
+    secret: 'entropy9'
+  },
+  publicRuntimeConfig: {
+    api: '/graphql'
+  },
+  webpack(config, options) {
+    // ...
+    return config;
+  }
+});
+```
+
+Using the `nodeConfigServerKey` and `nodeConfigPublicKey` options,
+`serverRuntimeConfig` and `publicRuntimeConfig` can be named something nicer in
+your config files:
+
+```js
+const withNodeConfig = require('next-plugin-node-config');
+
+module.exports = withNodeConfig({
+  nodeConfigServerKey: 'server',
+  nodeConfigPublicKey: 'public'
+});
+```
+
 [node-config]: https://github.com/lorenwest/node-config
 [next-config]: https://github.com/zeit/next.js#exposing-configuration-to-the-server--client-side
 [files]: https://github.com/lorenwest/node-config/wiki/Configuration-Files
