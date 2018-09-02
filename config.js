@@ -1,6 +1,10 @@
+/**
+ * This is a browser shim for the `config` module that gets its configuration
+ * values from `next/config`. It supports the `get()` and `has()` methods but
+ * not extras like `config.util`. Since this file will not be transpiled, it
+ * must use syntax supported by all browsers.
+ */
 var getConfig = require("next/config").default;
-
-var { serverRuntimeConfig, publicRuntimeConfig } = getConfig();
 
 /**
  * Underlying `get` mechanism.
@@ -53,10 +57,13 @@ function has(obj, property) {
   return getImpl(obj, property) !== undefined;
 }
 
-const {
-  nodeConfigServerKey = "serverRuntimeConfig",
-  nodeConfigPublicKey = "publicRuntimeConfig"
-} = publicRuntimeConfig;
+var runtimeConfig = getConfig();
+var serverRuntimeConfig = runtimeConfig.serverRuntimeConfig;
+var publicRuntimeConfig = runtimeConfig.publicRuntimeConfig;
+var nodeConfigServerKey =
+  publicRuntimeConfig.nodeConfigServerKey || "serverRuntimeConfig";
+var nodeConfigPublicKey =
+  publicRuntimeConfig.nodeConfigPublicKey || "publicRuntimeConfig";
 
 var config = {};
 config[nodeConfigServerKey] = serverRuntimeConfig;
