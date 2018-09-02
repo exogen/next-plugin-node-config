@@ -2,6 +2,14 @@
 
 Next.js and [node-config][], together at last.
 
+```console
+$ npm install next-plugin-node-config
+```
+
+```console
+$ yarn add next-plugin-node-config
+```
+
 ## Why?
 
 Next.js already has [built-in support for runtime configuration][next-config]
