@@ -1,4 +1,4 @@
-var getConfig = require("next/config");
+var getConfig = require("next/config").default;
 
 var { serverRuntimeConfig, publicRuntimeConfig } = getConfig();
 

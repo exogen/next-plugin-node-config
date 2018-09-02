@@ -1,12 +1,13 @@
 jest.mock(
   "next/config",
-  () =>
-    function getConfig() {
+  () => ({
+    default: function getConfig() {
       return {
         serverRuntimeConfig: { secret: 12345 },
         publicRuntimeConfig: { api: "/graphql" }
       };
-    },
+    }
+  }),
   { virtual: true }
 );
 
