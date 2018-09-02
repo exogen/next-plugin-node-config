@@ -61,7 +61,7 @@ plugin to `next.config.js`.
 Simplest usage with no existing Next.js config:
 
 ```js
-const withNodeConfig = require("next-plugin-node-config");
+const withNodeConfig = require('next-plugin-node-config');
 
 module.exports = withNodeConfig();
 ```
@@ -69,15 +69,15 @@ module.exports = withNodeConfig();
 With existing Next.js config:
 
 ```js
-const withNodeConfig = require("next-plugin-node-config");
+const withNodeConfig = require('next-plugin-node-config');
 
 module.exports = withNodeConfig({
   // These will be merged on top of anything that comes from `config`!
   serverRuntimeConfig: {
-    secret: "entropy9"
+    secret: 'entropy9'
   },
   publicRuntimeConfig: {
-    api: "/graphql"
+    api: '/graphql'
   },
   webpack(config, options) {
     // ...
@@ -91,12 +91,33 @@ Using the `nodeConfigServerKey` and `nodeConfigPublicKey` options,
 your config files:
 
 ```js
-const withNodeConfig = require("next-plugin-node-config");
+const withNodeConfig = require('next-plugin-node-config');
 
 module.exports = withNodeConfig({
-  nodeConfigServerKey: "server",
-  nodeConfigPublicKey: "public"
+  nodeConfigServerKey: 'server',
+  nodeConfigPublicKey: 'public'
 });
+```
+
+In your application, you’re still free to use the `next/config` module directly:
+
+```js
+import getConfig from 'next/config';
+
+const { serverRuntimeConfig, publicRuntimeConfig } = getConfig();
+```
+
+…but you can now use `config` as well!
+
+```js
+import config from 'config';
+
+const secret = config.get('serverRuntimeConfig.secret');
+const api = config.get('publicRuntimeConfig.api');
+
+// …or if using the custom keys as in the example above:
+const secret = config.get('server.secret');
+const api = config.get('public.api');
 ```
 
 [node-config]: https://github.com/lorenwest/node-config
