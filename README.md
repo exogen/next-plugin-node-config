@@ -5,7 +5,7 @@ Next.js and [node-config][], together at last.
 ## Why?
 
 Next.js already has [built-in support for runtime configuration][next-config]
-(in fact, this plugin is implemeted using that) –  so why involve
+(in fact, this plugin is implemented using that) –  so why involve
 [node-config][] as well?
 
 node-config provides some features that are nice for larger applications:
