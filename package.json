@@ -1,6 +1,6 @@
 {
   "name": "next-plugin-node-config",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "repository": "git@github.com:exogen/next-plugin-node-config.git",
   "author": "Brian Beck <exogen@gmail.com>",
   "license": "MIT",
