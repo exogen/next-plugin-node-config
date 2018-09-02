@@ -24,16 +24,17 @@ node-config provides some features that are nicer for large applications:
 
 ## How?
 
-When called, this plugin imports `config` and defines `serverRuntimeConfig`
-and `publicRuntimeConfig` in the output Next.js config.
+When called, this plugin imports `config` and uses the result to define
+`serverRuntimeConfig` and `publicRuntimeConfig` in the Next.js config that it
+returns.
 
-- `serverRuntimeConfig` will come from `config.serverRuntimeConfig` or a key of
-  your choosing defined by `nodeConfigServerKey` (for example, a value of
-  `server` will select `config.server`). If any existing `serverRuntimeConfig`
+- `serverRuntimeConfig` will come from `config.serverRuntimeConfig`, or a key of
+  your choosing defined by `nodeConfigServerKey`. For example, a value of
+  `server` will select `config.server`. If any existing `serverRuntimeConfig`
   value exists, it will be merged.
-- `publicRuntimeConfig` will come from `config.publicRuntimeConfig` or a key of
-  your choosing defined by `nodeConfigPublicKey` (for example, a value of
-  `public` will select `config.public`). If any existing `publicRuntimeConfig`
+- `publicRuntimeConfig` will come from `config.publicRuntimeConfig`, or a key of
+  your choosing defined by `nodeConfigPublicKey`. For example, a value of
+  `public` will select `config.public`. If any existing `publicRuntimeConfig`
   value exists, it will be merged.
 - A webpack alias is added for the `config` module that points to a browser shim
   provided by this plugin. It exports an object containing the configuration
