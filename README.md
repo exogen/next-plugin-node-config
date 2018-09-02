@@ -2,12 +2,16 @@
 
 Next.js and [node-config][], together at last.
 
-```console
-$ npm install next-plugin-node-config
+Install with npm:
+
+```sh
+npm install next-plugin-node-config
 ```
 
-```console
-$ yarn add next-plugin-node-config
+Install with Yarn:
+
+```sh
+yarn add next-plugin-node-config
 ```
 
 ## Why?
@@ -51,13 +55,13 @@ returns.
 
 ## Usage
 
-Add some configuration files, for example `config/default.js`, then add the
+Add some configuration files, for example `config/default.js`, then add this
 plugin to `next.config.js`.
 
 Simplest usage with no existing Next.js config:
 
 ```js
-const withNodeConfig = require('next-plugin-node-config');
+const withNodeConfig = require("next-plugin-node-config");
 
 module.exports = withNodeConfig();
 ```
@@ -65,15 +69,15 @@ module.exports = withNodeConfig();
 With existing Next.js config:
 
 ```js
-const withNodeConfig = require('next-plugin-node-config');
+const withNodeConfig = require("next-plugin-node-config");
 
 module.exports = withNodeConfig({
   // These will be merged on top of anything that comes from `config`!
   serverRuntimeConfig: {
-    secret: 'entropy9'
+    secret: "entropy9"
   },
   publicRuntimeConfig: {
-    api: '/graphql'
+    api: "/graphql"
   },
   webpack(config, options) {
     // ...
@@ -87,11 +91,11 @@ Using the `nodeConfigServerKey` and `nodeConfigPublicKey` options,
 your config files:
 
 ```js
-const withNodeConfig = require('next-plugin-node-config');
+const withNodeConfig = require("next-plugin-node-config");
 
 module.exports = withNodeConfig({
-  nodeConfigServerKey: 'server',
-  nodeConfigPublicKey: 'public'
+  nodeConfigServerKey: "server",
+  nodeConfigPublicKey: "public"
 });
 ```
 
