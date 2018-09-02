@@ -1,0 +1,24 @@
+{
+  "name": "next-plugin-node-config",
+  "version": "0.0.0",
+  "repository": "git@github.com:exogen/next-plugin-node-config.git",
+  "author": "Brian Beck <exogen@gmail.com>",
+  "license": "MIT",
+  "files": [
+    "config.js",
+    "index.js"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --write **/*.{js,md}",
+    "test": "jest"
+  },
+  "peerDependencies": {
+    "config": ">=1.0.0",
+    "next": ">=5.1.0"
+  },
+  "devDependencies": {
+    "jest": "^23.5.0",
+    "prettier": "^1.14.2"
+  }
+}
